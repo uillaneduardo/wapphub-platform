@@ -8,6 +8,7 @@ A implementação do Platform está prevista principalmente para M2.
 |---|---:|
 | Definição de escopo | ✅ |
 | Definição de rotas | ✅ |
+| Suporte/diagnóstico de integração | ✅ documentação |
 | Estrutura frontend | ⬜ |
 | WappHub Admin | ⬜ |
 | Organizations | ⬜ |
@@ -19,5 +20,7 @@ A implementação do Platform está prevista principalmente para M2.
 | Minha Conta | ⬜ |
 | Assentos | ⬜ |
 | Faturamento básico | ⬜ |
+| Integration health | ⬜ |
+| Diagnostic runs | ⬜ |
 
-Legenda: ✅ validado · 🟡 em andamento · ⬜ planejado.
+Legenda: ✅ validado/documentado · 🟡 em andamento · ⬜ planejado.
