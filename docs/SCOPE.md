@@ -1,54 +1,30 @@
 # Escopo do WappHub Platform
 
-A aplicação possui dois contextos.
+**Escopo exclusivo: administração GLOBAL do operador SaaS.** Decisão canônica: [ADR-0001](ADR-0001-M2-ADMIN-BOUNDARIES.md).
 
-## 1. WappHub Admin
+## WappHub Admin (uso interno)
 
-Uso interno da WappHub.
+- Cadastrar, visualizar, gerenciar e suspender Organizations com auditoria.
+- Gerenciar Products, Plans, Features, PlanFeature, Subscription, add-ons e overrides.
+- Cadastrar preços, inclusive R$ 0,00, e limites de capacidade.
+- Gerenciar assinaturas e faturamento global; acompanhar receita e inadimplência.
+- Configurar gateways de pagamento globais (fase específica a detalhar).
+- Monitorar diagnósticos e saúde por Organization/Channel/Provider, sem mostrar segredos.
+- Consultar consumo agregado de recursos, custos projetados e auditoria administrativa.
+- Relatórios globais, indicadores de API/Worker e observabilidade agregada.
 
-MVP:
-- listar/cadastrar/editar Organizations;
-- gerenciar Products;
-- gerenciar Plans;
-- aceitar preço R$ 0,00;
-- gerenciar Features;
-- vincular Features a Plans;
-- configurar quantidades incluídas;
-- criar/alterar/suspender Subscriptions;
-- visualizar/adicionar assentos/add-ons;
-- criar overrides/cortesias auditáveis;
-- visualizar saúde das integrações por Organization/Channel;
-- executar/consultar diagnósticos conforme permission;
-- visualizar capabilities sem expor segredos;
-- visualizar auditoria administrativa.
+## Fora deste frontend
 
-Detalhes de suporte: `docs/INTEGRATION_SUPPORT.md`.
+- Minha Conta e administração da própria Organization contratante.
+- Configuração operacional de WABA, números, credenciais Meta e webhooks do cliente.
+- Atendimento, conversas, contatos, equipes de contratantes.
 
-## 2. Minha Conta
-
-Uso do Owner autorizado de uma Organization.
-
-MVP:
-- visualizar organização atual;
-- visualizar assinatura;
-- plano atual;
-- recursos efetivos;
-- assentos contratados;
-- assentos utilizados;
-- assentos disponíveis;
-- faturamento básico;
-- conta pessoal.
-
-Configuração operacional do canal WhatsApp permanece no Chat/área operacional apropriada; o Platform exibe informações comerciais e de suporte conforme papel.
-
-## Separação
-
-O Platform não é a interface de atendimento. Conversas e operação diária pertencem ao `wapphub-chat`.
-
-O WappHub Admin não usa exceções hardcoded para a própria WappHub. A WappHub deve existir como Organization cliente com Subscription normal, inclusive plano de R$ 0,00.
+Essas funções pertencem ao `wapphub-chat`, sob permissão tenant-scoped do Core.
 
 ## Segurança
 
-Admin pode diagnosticar integração sem obter token Meta em claro.
+O painel global usa autoridade privilegiada independente de User/Membership de clientes; nenhum OWNER de Organization ganha acesso global. Exigir separação de backend administrativo, autenticação com MFA, isolamento de sessão/credenciais, proteção de rede e auditoria antes da implementação. Controles no frontend nunca substituem autorização no servidor.
 
-Mudanças administrativas de subscription, feature, entitlement e integração precisam ser auditáveis.
+## Status
+
+Este documento define escopo futuro, não implementação. Consultar `docs/STATUS.md`. Não alterar o M1 homologado.
