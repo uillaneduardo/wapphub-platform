@@ -16,3 +16,9 @@ Leia README.md, docs/SCOPE.md, docs/ROUTES.md, docs/INTEGRATION_SUPPORT.md e doc
 - Nunca exibir ou recuperar token Meta completo no frontend de suporte.
 - Saúde da integração não deve ser confundida com entitlement.
 - Não marcar STATUS como concluído sem validação.
+
+## Coordenação da consolidação WappHub (2026-10-11)
+
+Execução e auditoria do Provider WhatsApp/Core/Chat são conduzidas **pelo Codex no homelab**, conforme `wapphub-core/docs/WHATSAPP_WEB_CONSOLIDATION_EXECUTION.md` e acompanhadas em `wapphub-core/docs/WHATSAPP_WEB_CONSOLIDATION_PROGRESS.md`. Consultar os documentos antes de trabalho cruzado; não criar plano concorrente.
+
+**Platform está fora do escopo funcional da consolidação atual** salvo dependência concreta aprovada. Nenhuma alteração comercial, de preços, entitlements ou billing por conveniência. Fase A0–A2 é somente auditoria e proposta; mudanças funcionais apenas após aprovação única do usuário, com testes/PR e autorização de deploy. Usuário homologa interface no navegador; progresso no Core deve conter evidências e estado real da produção, não suposições.
